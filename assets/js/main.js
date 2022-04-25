@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const questionTitle = document.querySelector('#question')
   const modalBlock = document.querySelector('#modalBlock')
   const closeModal = document.querySelector('#closeModal')
+  const modalTitle = document.querySelector('#modalTitle')
   const prevButton = document.querySelector('#prev')
   const nextButton = document.querySelector('#next')
   const sendButton = document.querySelector('#send')
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   )
 
   const playTest = () => {
+    modalTitle.innerHTML = 'Ответь на вопрос:'
     const finalAnswers = []
     let numberQuestion = 0
 
@@ -147,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (numberQuestion === questions.length + 1) {
         sendButton.classList.add('d-none')
+        modalTitle.innerHTML = ''
         formAnswers.textContent = 'Спасибо за пройденный тест !'
         setTimeout(() => modalBlock.classList.remove('d-block'), 2000)
       }
