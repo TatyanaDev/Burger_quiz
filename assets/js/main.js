@@ -1,11 +1,11 @@
 'use strict'
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const btnOpenModal = document.querySelector('#btnOpenModal')
+  const formAnswers = document.querySelector('#formAnswers')
+  const questionTitle = document.querySelector('#question')
   const modalBlock = document.querySelector('#modalBlock')
   const closeModal = document.querySelector('#closeModal')
-  const questionTitle = document.querySelector('#question')
-  const formAnswers = document.querySelector('#formAnswers')
   const prevButton = document.querySelector('#prev')
   const nextButton = document.querySelector('#next')
   const sendButton = document.querySelector('#send')
@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
       answers: [
         {
           title: 'Стандарт',
-          url: './image/burger.png'
+          url: './assets/images/burger.png'
         },
         {
           title: 'Черный',
-          url: './image/burgerBlack.png'
+          url: './assets/images/burgerBlack.png'
         }
       ],
       type: 'radio'
@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', function () {
       answers: [
         {
           title: 'Курица',
-          url: './image/chickenMeat.png'
+          url: './assets/images/chickenMeat.png'
         },
         {
           title: 'Говядина',
-          url: './image/beefMeat.png'
+          url: './assets/images/beefMeat.png'
         },
         {
           title: 'Свинина',
-          url: './image/porkMeat.png'
+          url: './assets/images/porkMeat.png'
         }
       ],
       type: 'radio'
@@ -48,19 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
       answers: [
         {
           title: 'Помидор',
-          url: './image/tomato.png'
+          url: './assets/images/tomato.png'
         },
         {
           title: 'Огурец',
-          url: './image/cucumber.png'
+          url: './assets/images/cucumber.png'
         },
         {
           title: 'Салат',
-          url: './image/salad.png'
+          url: './assets/images/salad.png'
         },
         {
           title: 'Лук',
-          url: './image/onion.png'
+          url: './assets/images/onion.png'
         }
       ],
       type: 'checkbox'
@@ -70,15 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
       answers: [
         {
           title: 'Чесночный',
-          url: './image/sauce1.png'
+          url: './assets/images/garlicSauce.png'
         },
         {
           title: 'Томатный',
-          url: './image/sauce2.png'
+          url: './assets/images/tomatoSauce.png'
         },
         {
           title: 'Горчичный',
-          url: './image/sauce3.png'
+          url: './assets/images/mustardSauce.png'
         }
       ],
       type: 'radio'
@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
     playTest()
   })
 
-  closeModal.addEventListener('click', () => {
+  closeModal.addEventListener('click', () =>
     modalBlock.classList.remove('d-block')
-  })
+  )
 
   const playTest = () => {
     const finalAnswers = []
@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const renderAnswers = index => {
       questions[index].answers.forEach(answer => {
         const answerItem = document.createElement('div')
-
         answerItem.classList.add(
           'answers-item',
           'd-flex',
@@ -149,9 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (numberQuestion === questions.length + 1) {
         sendButton.classList.add('d-none')
         formAnswers.textContent = 'Спасибо за пройденный тест !'
-        setTimeout(() => {
-          modalBlock.classList.remove('d-block')
-        }, 2000)
+        setTimeout(() => modalBlock.classList.remove('d-block'), 2000)
       }
     }
     renderQuestions(numberQuestion)
@@ -159,13 +156,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkAnswer = () => {
       const obj = {}
 
-      const inputs = [...formAnswers.elements].filter(
-        input => input.checked || input.id === 'numberPhone'
-      )
+      const inputs = [...formAnswers.elements].filter(input => input.checked || input.id === 'numberPhone')
 
-      inputs.forEach((input, index) => {
+      inputs.forEach(input => {
         if (numberQuestion >= 0 && numberQuestion <= questions.length - 1) {
-          obj[`${index}_${questions[numberQuestion].question}`] = input.value
+          obj[`${questions[numberQuestion].question}`] = input.value
         }
 
         if (numberQuestion === questions.length) {

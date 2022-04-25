@@ -1,6 +1,6 @@
 body {
-    background: #e0ffff;
     font-family: fantasy, sans-serif;
+    background: #e0ffff;
 }
 
 li {
@@ -8,11 +8,11 @@ li {
 }
 
 .answers-item label {
-    cursor: pointer;
-    border: 2px solid #000;
     border-radius: 0 0 10px 10px;
-    min-width: 60px;
+    border: 2px solid #000;
     text-align: center;
+    cursor: pointer;
+    min-width: 60px;
 }
 
 .answers-item label:hover {
@@ -37,26 +37,26 @@ label span {
 }
 
 .logo-img {
-    width: 50px;
-    height: 50px;
-    background: url("../image/burger.png") center no-repeat;
+    background: url("./../images/burger.png") center no-repeat;
     background-size: contain;
+    height: 50px;
+    width: 50px;
 }
 
 .logo-text,
 .contacts,
 .main-title,
 .arrow {
-    color: #3cb371;
+    -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+    color: #3cb371;
 }
 
 .content {
-    width: 300px;
-    height: 300px;
-    background: url("../image/burger-4026165_960_720.webp") center no-repeat;
+    background: url("./../images/burgerLogo.webp") center no-repeat;
     background-size: 115%;
+    height: 300px;
+    width: 300px;
 }
 
 .modal {
@@ -68,31 +68,31 @@ label span {
 }
 
 .btn-outline-danger {
+    border: 1px solid #3cb371;
     background-color: inherit;
-    border: 1px solid #3cb371 !important;
-    color: #3cb371 !important;
+    color: #3cb371;
 }
 
 .btn-outline-danger span {
-    font-size: 2rem !important;
-    color: #3cb371;
+    -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+    color: #3cb371;
+    font-size: 2rem;
 }
 
 .btn-outline-danger:hover,
 .btn-outline-danger:active,
 .btn-outline-danger:focus,
 .btn-outline-danger:visited {
-    background-color: #3cb371 !important;
-    color: black !important;
+    background-color: #3cb371;
+    color: #000000;
 }
 
 .btn-outline-danger:hover span,
 .btn-outline-danger:active span,
 .btn-outline-danger:focus span,
 .btn-outline-danger:visited span {
-    color: #e0ffff !important;
+    -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+    color: #e0ffff;
 }
